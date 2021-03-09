@@ -31,7 +31,7 @@
                 <br>
                 <br>
 
-                <div class="demo-items">
+             <!--    <div class="demo-items">
                     <nb-checkbox disabled>Disabled Checkbox</nb-checkbox>
                     <nb-radio-group disabled>
                         <nb-radio [value]="'Disabled Value'">
@@ -41,6 +41,63 @@
                 </div>
 
 
+               <form [formGroup]="form" #signUpForm="ngForm" class="normal-form">
+                    <nb-radio-group formControlName="role">
+                        <nb-radio value="1">Patient</nb-radio>
+                        <nb-radio value="2">Doctor</nb-radio>
+                    </nb-radio-group>
+                    <br>
+                    <input type="file" #Image accept="image/*" [disabled]="form.value.role==1">
+                </form>
+
+                <form [formGroup]="form" #signUpForm="ngForm" class="normal-form">
+
+                    <div class="demo-items">
+                        <nb-radio-group [(value)]="radioGroupValue" formControlName="role">
+                            <nb-radio [value]="1">
+                                Artiste
+                            </nb-radio>
+                            <nb-radio [value]="2">
+                                Fournisseur
+                            </nb-radio>
+
+                        </nb-radio-group>
+                    </div>
+                    <input type="text"  [disabled]="form.value.role==1" value="testtest">
+                    <input type="text"  [disabled]="form.value.role==2" value="setssets">
+
+                    -->
+                    <div class="form-group col-5">
+                        <label>Nom Artiste </label>
+                        <select formControlName="nArtiste" class="form-control"  [disabled]="form.value.role==1"
+                            [ngClass]="{ 'is-invalid': submitted && f.nArtiste.errors }" [(ngModel)]="u.artiste">
+                            <option *ngFor="let d of artiste" [ngValue]="d"  [disabled]="form.value.role==1">
+                                {{ d.nom }} {{ d.prenom }}
+                            </option>
+                        </select>
+
+
+                        <div *ngIf="submitted && f.nArtiste.errors" class="invalid-feedback">
+                            <div *ngIf="f.nArtiste.errors.required">Nom Artiste is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-5">
+                        <label>Fournisseur </label>
+                        <select formControlName="fournisseur" class="form-control"  
+                            [ngClass]="{ 'is-invalid': submitted && f.fournisseur.errors }" [(ngModel)]="u.fournisseur">
+                            <option *ngFor="let b of fournisseur" [ngValue]="b">
+                                {{ b.nom }}
+                            </option>
+                        </select>
+
+
+                        <div *ngIf="submitted && f.fournisseur.errors" class="invalid-feedback">
+                            <div *ngIf="f.fournisseur.errors.required">fournisseur is required</div>
+                        </div>
+                    </div>
+                </form>
                 <div class="form-group col-5">
                     <label>Date création chanson</label>
                     <input type="date" formControlName="datec" class="form-control"
