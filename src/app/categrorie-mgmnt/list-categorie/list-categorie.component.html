@@ -1,0 +1,47 @@
+<div style="margin-left: 20px;margin-right: 20px;">
+    <br />
+    <button class="btn btn-secondary" (click)="ajouter()">Ajouter Catégorie</button>
+    <br />
+    <br />
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+            <tr>
+                 <th></th> 
+                 <th align="text-center">Nom Categorie</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of cats">
+                <!--                <td>{{ person.id }}</td> -->
+                <td></td>
+                <td>{{ c.nomC }}</td>
+                <td>
+                    <div class="text-center">
+
+                        <button class="btn btn-primary mr-1" (click)="details(c)">Details</button>
+                        <button class="btn btn-warning mr-1" (click)="modifier(c)">Edit</button>
+
+                        <button class="btn btn-danger" (click)="delete(c)">Supprimer</button>
+
+                    </div>
+                </td>
+                   
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Dialog for details user with a seperate Component-->
+<p-dialog [modal]="true" header="Fiche Categorie" [(visible)]="displayBasic" [style]="{width: '50vw'}"
+    [baseZIndex]="10000">
+ 
+   <app-detail-categorie [Categories]="currentCategorie"></app-detail-categorie>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text">
+
+        </p-button>
+    </ng-template>
+</p-dialog> 

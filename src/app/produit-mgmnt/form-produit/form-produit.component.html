@@ -1,0 +1,66 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header"> Ajouter un nouveau produit</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+
+                <div class="form-group col-5">
+                    <label>Nom Produit</label>
+                    <input type="text" formControlName="firstName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="u.nom" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required"> Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Prix</label>
+                    <input type="text" formControlName="prix" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.prix.errors }" [(ngModel)]="u.prix" />
+                    <div *ngIf="submitted && f.prix.errors" class="invalid-feedback">
+                        <div *ngIf="f.prix.errors.required">Prix is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Quantite</label>
+                    <input type="text" formControlName="quantite" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.quantite.errors }" [(ngModel)]="u.quantite" />
+                    <div *ngIf="submitted && f.quantite.errors" class="invalid-feedback">
+                        <div *ngIf="f.quantite.errors.required">Quantite is required</div>
+                    </div>
+                </div>
+  
+                <div class="form-group col">
+                    <label>Categorie </label>
+                    <select formControlName="idCategorie" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.idCategorie.errors }" [(ngModel)]="u.categorie">
+                        <option *ngFor="let d of categorie" [ngValue]="d">
+                            {{ d.nomC}}
+                        </option>
+                    </select>
+
+               
+                    <div *ngIf="submitted && f.idCategorie.errors" class="invalid-feedback">
+                        <div *ngIf="f.idCategorie.errors.required">id Categorie is required</div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- credits -->

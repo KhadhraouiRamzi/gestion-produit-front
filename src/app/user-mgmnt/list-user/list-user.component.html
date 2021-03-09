@@ -1,0 +1,55 @@
+<div style="margin-left: 20px;margin-right: 20px;">
+    <br />
+    <button class="btn btn-secondary" (click)="ajouter()">Ajouter User</button>
+    <br />
+    <br />
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+            <tr>
+                <!--<th>ID</th>-->
+                <th>Title</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Password</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of users">
+                <!--                <td>{{ person.id }}</td> -->
+                <td>{{ p.sex }}</td>
+                <td>{{ p.nom }}</td>
+                <td>{{ p.prenom }}</td>
+                <td>{{ p.age }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.password }}</td>
+                <td>
+                    <div class="text-center">
+
+                        <button class="btn btn-primary mr-1" (click)="details(p)">Details</button>
+                        <button class="btn btn-warning mr-1" (click)="modifier(p)">Edit</button>
+
+                        <button class="btn btn-danger" (click)="delete(p)">Supprimer</button>
+
+                    </div>
+                    <!--  </td>
+                <td><button class="btn btn-primary" (click)="showTransactions(p.id)">Show Produit</button>
+                </td>
+                -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Dialog for details user with a seperate Component -->
+<p-dialog [modal]="true" header="Fiche User" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <app-detail-user [user]="currentUser"></app-detail-user>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text">
+
+        </p-button>
+    </ng-template>
+</p-dialog>

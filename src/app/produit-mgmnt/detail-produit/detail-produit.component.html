@@ -1,0 +1,29 @@
+<p>Le produit est :</p>
+<div *ngIf="produit">
+    <table>
+        <tr>
+            <td>Nom </td> 
+            <td>:</td>
+
+        <td>{{produit.nom}}</td>
+    </tr>
+    <tr>
+        <td>Prix </td> 
+    <td>:</td>
+        <td>{{produit.prix}}</td> 
+    </tr>
+    <tr>
+        <td>Quantite </td> 
+        <td>:</td>
+
+        <td>{{produit.quantite}}</td>
+    </tr>
+    <tr>
+        <td>Catégorie </td> 
+        <td>:</td>
+
+        <td>{{produit.categorie.nomC}}</td>
+    </tr>
+    </table>
+ 
+</div>

@@ -1,0 +1,33 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header"> Ajouter une nouvelle Catégorie</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+
+                <div class="form-group col-5">
+                    <label>Nom Catégorie</label>
+                    <input type="text" formControlName="nomC" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.nomC.errors }" [(ngModel)]="c.nomC" />
+                    <div *ngIf="submitted && f.nomC.errors" class="invalid-feedback">
+                        <div *ngIf="f.nomC.errors.required"> Name category is required</div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- credits -->

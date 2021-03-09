@@ -1,0 +1,62 @@
+<div class="col-md-6" *ngIf="u">
+ 
+    <h2 class="text-center">Edit Produit</h2>
+    
+
+    <div class="form-group col">
+      <label for="firstName">Title:</label>
+      <input type="text" class="form-control" [(ngModel)]="u.sex"/>
+    </div>
+      <div class="form-group col">
+        <label for="firstName">Nom:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.nom"/>
+      </div>
+  
+      <div class="form-group col">
+        <label for="lastName">Prenom:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.prenom"/>
+      </div>
+  
+      <div class="form-group col">
+        <label for="lastName">Age:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.age"/>
+      </div>
+
+      <div class="form-group col">
+        <label for="lastName">Email:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.email"/>
+      </div>
+  
+ <!--     <div>
+        <label for="lastName">Password:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.password"/>
+      </div>
+     <div>
+        <label for="lastName">Confirme Password:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.password"/>
+      </div>
+
+        <div class="form-group col">
+        <label>Confirm Password:</label>
+        <input type="text"   class="form-control" [(ngModel)]="u.password" />
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+        </div>
+    </div>
+
+ -->
+      <div class="form-group col">
+        <label>Password:</label>
+        <input type="text"  class="form-control" 
+          [(ngModel)]="u.password"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+  
+
+    <button class="btn btn-success mr-1" (click)="update()">Update</button>
+    <button class="btn btn-warning mr-1" (click)="annuler()">Annuler</button>
+  </div>

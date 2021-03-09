@@ -1,0 +1,11 @@
+<div class="col-md-6" *ngIf="u">
+    <h2 class="text-center">Edit Catégroie</h2>
+    
+      <div>
+        <label for="firstName">Nom Catégroie:</label>
+        <input type="text" class="form-control" [(ngModel)]="u.nomC"/>
+      </div>
+  
+      <button class="btn btn-success" (click)="update(u)">Update</button>
+   
+  </div>

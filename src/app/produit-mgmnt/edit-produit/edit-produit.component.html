@@ -1,0 +1,72 @@
+<div class="col-md-6" *ngIf="u">
+  <h2 class="text-center">Edit Produit</h2>
+
+  <div>
+    <label for="firstName">Nom:</label>
+    <input type="text" class="form-control" [(ngModel)]="u.nom" />
+  </div>
+
+  <div>
+    <label for="lastName">Prix:</label>
+    <input type="number" class="form-control" [(ngModel)]="u.prix" />
+  </div>
+
+  <div>
+    <label for="lastName">Quantite:</label>
+    <input type="number" class="form-control" [(ngModel)]="u.quantite" />
+  </div>
+  <!--
+  <div>
+    <label for="lastName">Catégories:</label>
+    <input type="number" class="form-control" [(ngModel)]="u.idCategorie" />
+  </div>
+    <select    class="form-control" [(ngModel)]="u.categorie" >
+              <option class="dropdown-item" disabled selected value="undefined"> {{u.categorie.nomC}} </option>
+       <option *ngFor="let d of categorie" [ngValue]="d"  >
+        {{ d.nomC }}
+      </option>
+    </select>
+  <div>
+     [selected]="u.categorie.nomC"
+       <form [formGroup]="countryForm" > 
+ng-selected="u.categorie.nomC"
+  -->
+  <label for="lastName">Catégories:</label>
+
+  <select class="form-control" name="profil" [(ngModel)]="u.idCategorie">
+    <option class="form-control" disabled > {{u.categorie.nomC}} </option>
+    <option *ngFor="let d of categorie" [ngValue]="d.idCategorie">{{ d.nomC }} </option>
+  </select>
+  <br>
+  <!--   <select ng-model="u.categorie" ng-options="values for values in [5,4,3,2,1]">
+      <option value="" >{{u.categorie.nomC}}</option>
+      <option  *ngFor="let d of categorie" [ngValue]="d" >{{ d.nomC }} </option>
+
+   </select>
+  <select class="field form-control" [formGroup]="myGroup" [(ngModel)]="u.categorie"  >
+    <option class="dropdown-item" disabled selected value="undefined"> {{u.categorie.nomC}} </option>
+    <option *ngFor="let d of categorie" [ngValue]="d"> {{ d.nomC }} </option>
+     </select>
+     
+
+       <div class="select">
+
+  <select [(ngModel)]="selectedOption" name="selectMesEscolhido" class="select-text">
+    <option class="dropdown-item" disabled selected value="undefined">Select an Option</option>
+    <option *ngFor="let d of categorie" [ngValue]="d">
+      {{ d.nomC }}
+    </option>
+  </select>
+
+
+  <span class="select-highlight"></span>
+  <span class="select-bar"></span>
+
+  <button (click)="selectedOption = 'Option 4'">Select Option 4</button>
+
+ </div>
+ -->
+  <button class="btn btn-success mr-1" (click)="update(u)">Update</button>
+  <button class="btn btn-warning mr-1" (click)="annuler()">Annuler</button>
+
+</div>
