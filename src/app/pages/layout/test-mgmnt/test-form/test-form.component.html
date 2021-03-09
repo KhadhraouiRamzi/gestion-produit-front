@@ -1,0 +1,26 @@
+<form [formGroup]="form" #signUpForm="ngForm" class="normal-form">
+                    <nb-radio-group formControlName="role">
+                        <nb-radio value="1">Patient</nb-radio>
+                        <nb-radio value="2">Doctor</nb-radio>
+                    </nb-radio-group>
+                    <br>
+                    <input type="file" #Image accept="image/*" [disabled]="form.value.role==1">
+                </form>
+
+                
+                
+                <form [formGroup]="form" #signUpForm="ngForm" class="normal-form">
+
+    <div class="demo-items">
+        <nb-radio-group [(value)]="radioGroupValue" formControlName="role">
+            <nb-radio [value]="1">
+                Artiste
+            </nb-radio>
+            <nb-radio [value]="2">
+                Fournisseur
+            </nb-radio>
+
+        </nb-radio-group>
+    </div> 
+</form>
+

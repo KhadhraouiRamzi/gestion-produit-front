@@ -25,11 +25,14 @@ export class FormChansonComponent implements OnInit {
   fournisseur: fournisseur[] = [];
   statuses: NbComponentStatus[] = [ 'primary' ];
   statuses2: NbComponentStatus[] = [ 'warning' ];
-  
+
+
+
   constructor(private formBuilder: FormBuilder, private albumService :AlbumService ,private fournisseurService : FournisseurService
      ,private artisteService: ArtisteService, private chansonService: ChansonService) { }
 
   ngOnInit(): void {
+    
 
     this.albumService.getlistAlbum().subscribe(res => {
       this.album = res;

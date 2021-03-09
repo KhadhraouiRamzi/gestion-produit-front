@@ -15,50 +15,31 @@
                 </div>
 
                 <div class="form-group col-5">
-                    <label>Nom Artiste </label>
-                    <select formControlName="nArtiste" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.nArtiste.errors }" [(ngModel)]="u.artiste">
-                        <option *ngFor="let d of artiste" [ngValue]="d">
-                            {{ d.nom }}  {{ d.prenom }}
-                        </option>
-                    </select>
-
-               
-                    <div *ngIf="submitted && f.nArtiste.errors" class="invalid-feedback">
-                        <div *ngIf="f.nArtiste.errors.required">Nom Artiste is required</div>
-                    </div>
-                </div>
-
-                <div class="form-group col-5">
                     <label>Nom Album </label>
                     <select formControlName="nAlbum" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f.nAlbum.errors }" [(ngModel)]="u.album">
                         <option *ngFor="let b of album" [ngValue]="b">
-                            {{ b.titre }}  
+                            {{ b.titre }}
                         </option>
                     </select>
 
-               
                     <div *ngIf="submitted && f.nAlbum.errors" class="invalid-feedback">
                         <div *ngIf="f.nAlbum.errors.required">Nom Album is required</div>
                     </div>
                 </div>
 
-                
-                <div class="form-group col-5">
-                    <label>Fournisseur </label>
-                    <select formControlName="fournisseur" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.fournisseur.errors }" [(ngModel)]="u.fournisseur">
-                        <option *ngFor="let b of fournisseur" [ngValue]="b">
-                            {{ b.nom }}  
-                        </option>
-                    </select>
+                <br>
+                <br>
 
-               
-                    <div *ngIf="submitted && f.fournisseur.errors" class="invalid-feedback">
-                        <div *ngIf="f.fournisseur.errors.required">fournisseur is required</div>
-                    </div>
+                <div class="demo-items">
+                    <nb-checkbox disabled>Disabled Checkbox</nb-checkbox>
+                    <nb-radio-group disabled>
+                        <nb-radio [value]="'Disabled Value'">
+                            Disabled Radio
+                        </nb-radio>
+                    </nb-radio-group>
                 </div>
+
 
                 <div class="form-group col-5">
                     <label>Date création chanson</label>
@@ -134,7 +115,7 @@
                 </table>
 
             </nb-card-body>
-             
+
         </form>
     </div>
 </div>

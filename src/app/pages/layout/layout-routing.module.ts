@@ -20,6 +20,7 @@ import { ListAlbumComponent } from './album-mgmnt/list-album/list-album.componen
 import { FormAlbumComponent } from './album-mgmnt/form-album/form-album.component';
 import { EditAlbumComponent } from './album-mgmnt/edit-album/edit-album.component';
 import { DetailAlbumComponent } from './album-mgmnt/detail-album/detail-album.component';
+import { TestFormComponent } from './test-mgmnt/test-form/test-form.component';
 
 const routes: Routes = [{
   path: '',
@@ -28,6 +29,10 @@ const routes: Routes = [{
     {
       path: 'list-album',
       component: ListAlbumComponent,
+    },
+    {
+      path: 'test-form',
+      component: TestFormComponent,
     },
     {      
       path: 'edit-album/:id',

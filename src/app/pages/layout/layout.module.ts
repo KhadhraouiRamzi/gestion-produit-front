@@ -53,6 +53,8 @@ import { FormFournisseurComponent } from './fournisseur-mgmnt/form-fournisseur/f
 import { DialogModule } from 'primeng/dialog';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
+import { TestFormComponent } from './test-mgmnt/test-form/test-form.component';
+import { TestListComponent } from './test-mgmnt/test-list/test-list.component';
 
 @NgModule({
   imports: [
@@ -117,6 +119,8 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
     ListFournisseurComponent,
     EditFournisseurComponent,
     FormFournisseurComponent,
+    TestFormComponent,
+    TestListComponent,
   ],
   providers: [
     NewsService,
