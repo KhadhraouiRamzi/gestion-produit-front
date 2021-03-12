@@ -21,11 +21,31 @@ import { FormAlbumComponent } from './album-mgmnt/form-album/form-album.componen
 import { EditAlbumComponent } from './album-mgmnt/edit-album/edit-album.component';
 import { DetailAlbumComponent } from './album-mgmnt/detail-album/detail-album.component';
 import { TestFormComponent } from './test-mgmnt/test-form/test-form.component';
+import { ListFournisseurComponent } from './fournisseur-mgmnt/list-fournisseur/list-fournisseur.component';
+import { FormFournisseurComponent } from './fournisseur-mgmnt/form-fournisseur/form-fournisseur.component';
+import { DetailFournisseurComponent } from './fournisseur-mgmnt/detail-fournisseur/detail-fournisseur.component';
+import { EditFournisseurComponent } from './fournisseur-mgmnt/edit-fournisseur/edit-fournisseur.component';
 
 const routes: Routes = [{
   path: '',
   component: LayoutComponent,
   children: [
+    {
+      path: 'list-fournisseur',
+      component: ListFournisseurComponent,
+    },
+    {
+      path: 'edit-fournisseur/:id',
+      component: EditFournisseurComponent,
+    },
+    {
+      path: 'detail-fournisseur',
+      component: DetailFournisseurComponent,
+    },
+    {
+      path: 'form-fournisseur',
+      component: FormFournisseurComponent,
+    },
     {
       path: 'list-album',
       component: ListAlbumComponent,

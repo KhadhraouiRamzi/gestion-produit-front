@@ -31,7 +31,8 @@ export class EditChansonComponent implements OnInit {
   fournisseur: fournisseur[] = [];
    
   constructor(private albumService : AlbumService,private fournisseurService : FournisseurService,private artisteService :ArtisteService,
-    private chansonService : ChansonService,private router: Router, private ar : ActivatedRoute,private formBuilder: FormBuilder) { }
+    private chansonService : ChansonService,private router: Router, 
+    private ar : ActivatedRoute,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 

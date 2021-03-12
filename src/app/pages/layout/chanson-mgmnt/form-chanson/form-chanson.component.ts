@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbComponentStatus } from '@nebular/theme';
+import { UserService } from '../../../../@core/mock/users.service';
 import { album } from '../../../../models/album';
-import { artiste } from '../../../../models/artiste';
 import { chanson } from '../../../../models/chanson';
-import { fournisseur } from '../../../../models/fournisseur';
+ import { user } from '../../../../models/user';
 import { AlbumService } from '../../../../utils/services/album.service';
-import { ArtisteService } from '../../../../utils/services/artiste.service';
-import { ChansonService } from '../../../../utils/services/chanson.service';
-import { FournisseurService } from '../../../../utils/services/fournisseur.service';
-
+ import { ChansonService } from '../../../../utils/services/chanson.service';
+ 
 @Component({
   selector: 'ngx-form-chanson',
   templateUrl: './form-chanson.component.html',
@@ -20,16 +18,15 @@ export class FormChansonComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   u: chanson = new chanson();
-  artiste: artiste[] = [];
+  user: user[] = [];
   album: album[] = [];
-  fournisseur: fournisseur[] = [];
-  statuses: NbComponentStatus[] = [ 'primary' ];
+   statuses: NbComponentStatus[] = [ 'primary' ];
   statuses2: NbComponentStatus[] = [ 'warning' ];
 
 
 
-  constructor(private formBuilder: FormBuilder, private albumService :AlbumService ,private fournisseurService : FournisseurService
-     ,private artisteService: ArtisteService, private chansonService: ChansonService) { }
+  constructor(private formBuilder: FormBuilder, private albumService :AlbumService , 
+    private userService: UserService, private chansonService: ChansonService) { }
 
   ngOnInit(): void {
     
@@ -41,20 +38,12 @@ export class FormChansonComponent implements OnInit {
       console.log(res);
 
     });
-
-    this.fournisseurService.getlistFournisseur().subscribe(res => {
-      this.fournisseur = res;
-      // Calling the DT trigger to manually render the table
-      console.log(this.fournisseur);
-      console.log(res);
-
-    });
-
+ 
     
-    this.artisteService.getlistArtiste().subscribe(res => {
-      this.artiste = res;
+    this.userService.getUsers().subscribe(res => {
+      this.user = res;
       // Calling the DT trigger to manually render the table
-      console.log(this.artiste);
+      console.log(this.user);
       console.log(res);
 
     });

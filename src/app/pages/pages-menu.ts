@@ -46,7 +46,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Album',
-    icon: 'music-outline',
+    icon: 'grid-outline',
     children: [
       {
         title: 'List Album',
@@ -55,6 +55,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Ajout Album',
         link: '/pages/layout/form-album',
+      }
+    ],
+  },
+  {
+    title: 'Fournisseur',
+    icon: 'shuffle-2-outline',
+    children: [
+      {
+        title: 'List fournisseur',
+        link: '/pages/layout/list-fournisseur',
+      },
+      {
+        title: 'Ajout fournisseur',
+        link: '/pages/layout/form-fournisseur',
       }
     ],
   },
