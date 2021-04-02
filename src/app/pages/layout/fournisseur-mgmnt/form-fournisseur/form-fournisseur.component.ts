@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NbComponentStatus } from '@nebular/theme';
 import { fournisseur } from '../../../../models/fournisseur';
 import { FournisseurService } from '../../../../utils/services/fournisseur.service';
@@ -16,8 +17,11 @@ export class FormFournisseurComponent implements OnInit {
    
   fournisseur: fournisseur[] = [];
   statuses: NbComponentStatus[] = [ 'primary' ];
-  statuses2: NbComponentStatus[] = [ 'warning' ];
-  constructor(private formBuilder: FormBuilder ,private fournisseurService : FournisseurService) { }
+  statuses2: NbComponentStatus[] = [ 'warning' ];  
+  statuses3: NbComponentStatus[] = ['danger'];
+  statuses4: NbComponentStatus[] = ['info'];
+
+  constructor(private formBuilder: FormBuilder ,private fournisseurService : FournisseurService,private r: Router) { }
 
   ngOnInit(): void {
     
@@ -44,28 +48,24 @@ export class FormFournisseurComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
     this.submitted = true;
-
+    
     this.fournisseurService.addFournisseur(this.u).subscribe(res => {
-
       alert("ajout avec succès !");
       console.log(this.u);
-
       this.u = new fournisseur();
     });
   }
-
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
   }
 
-
-
-
+  Retour() {
+    this.r.navigate(['/pages/layout/list-fournisseur/']);
+  }
 }

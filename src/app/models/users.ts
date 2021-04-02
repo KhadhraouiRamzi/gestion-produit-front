@@ -1,4 +1,8 @@
-export class user
+import { Byte } from "@angular/compiler/src/util";
+import { marketing } from "./marketing";
+import { role } from "./role";
+
+export class users
 {    id: Number;
      cdate: Date;
      nom: String;
@@ -17,6 +21,10 @@ export class user
      proposition: String;
      retenu: Number;
      udate : Date;
-  
-
+     name :string ;
+     type : string;
+     picByte : Byte;
+     files : File;
+     marketing : marketing;
+     role : role;
 }

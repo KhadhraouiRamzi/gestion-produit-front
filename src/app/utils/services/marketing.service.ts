@@ -10,7 +10,10 @@ export class MarketingService {
   baseUrl: string = "http://localhost:8081";
 
   constructor(private backend: HttpClient) { }
-  
+
+  getMarkById(id) {
+    return this.backend.get<marketing>(this.baseUrl + "/marketing/by-id/" + id);
+  }
   getMarketing(): Observable<any> {
     return this.backend.get<any>(this.baseUrl + "/listMarketing");
   }

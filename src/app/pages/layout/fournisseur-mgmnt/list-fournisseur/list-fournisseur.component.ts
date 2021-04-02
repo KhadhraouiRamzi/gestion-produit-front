@@ -4,8 +4,8 @@ import { NbComponentStatus } from '@nebular/theme';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { SmartTableData } from '../../../../@core/data/smart-table';
-import { fournisseur } from '../../../../models/fournisseur';
-import { FournisseurService } from '../../../../utils/services/fournisseur.service';
+ import { users } from '../../../../models/users';
+ import { UsersService } from '../../../../utils/services/users.service';
 
 @Component({
   selector: 'ngx-list-fournisseur',
@@ -14,11 +14,11 @@ import { FournisseurService } from '../../../../utils/services/fournisseur.servi
 })
 export class ListFournisseurComponent implements OnInit {
 
-  fournisseurs: fournisseur;
+  fournisseurs: users;
   statuses: NbComponentStatus[] = ['success'];
   statuses2: NbComponentStatus[] = ['primary'];
-  statuses3: NbComponentStatus[] = ['danger'];
-
+  statuses3: NbComponentStatus[] = ['danger']; 
+  statuses4: NbComponentStatus[] = ['info'];
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -28,7 +28,7 @@ export class ListFournisseurComponent implements OnInit {
   // thus we ensure the data is fetched before rendering
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private service: SmartTableData, private fournisseurService: FournisseurService, private r: Router, private ar: ActivatedRoute) { }
+  constructor(private service: SmartTableData, private fournisseurService: UsersService, private r: Router, private ar: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -36,7 +36,7 @@ export class ListFournisseurComponent implements OnInit {
       pageLength: 5
     };
 
-    this.fournisseurService.getlistFournisseur().subscribe(
+    this.fournisseurService.getFours().subscribe(
       res => {
         // Swal.fire('This is a simple and sweet alert')
         console.log(res);
@@ -53,14 +53,17 @@ export class ListFournisseurComponent implements OnInit {
     this.dtTrigger.unsubscribe();
   }
   displayBasic: boolean;
-  currentfournisseur: fournisseur;
+  currentfournisseur: users;
 
-  details(u: fournisseur) {
+  details(u: users) {
     this.currentfournisseur = u;
     this.displayBasic = true;
   }
 
-  modifier(u: fournisseur) {
+  ajouter() {
+    this.r.navigate(['/pages/layout/form-fournisseur/']);
+  }
+  modifier(u: users) {
 
     //if (window.confirm("êtes-vous sûr de modifier le produit " + u.nom + " ?")) {
     this.r.navigate(['/pages/layout/edit-fournisseur/' + u.id]);
@@ -70,12 +73,12 @@ export class ListFournisseurComponent implements OnInit {
 
   }
 
-  delete(p: fournisseur) {
-    if (window.confirm("êtes-vous sûr suprrimer le fournisseur " + p.nom +" ?")) {
-      this.fournisseurService.deleteFournisseur(p.id).subscribe(res => {
+  delete(p: users) {
+    if (window.confirm("êtes-vous sûr suprrimer le fournisseur " +  p.nom +" ?")) {
+      this.fournisseurService.deleteUser(p.id).subscribe(res => {
         //alert('Produit deleted !');
 
-        this.fournisseurService.getlistFournisseur().subscribe(res => {
+        this.fournisseurService.getFournisseurs().subscribe(res => {
           this.fournisseurs = res;
 
           // rerender datatable

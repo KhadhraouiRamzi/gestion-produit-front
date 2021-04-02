@@ -5,37 +5,55 @@
     <nb-card-body>
 
         <div *ngIf="fournisseur">
-            <table>
+            <table>    
                 <tr>
-                    <td>Nom Fournisseur </td>
+                    <td>Nom fournisseur </td>
                     <td>:</td>
                     <td>{{fournisseur.nom}}</td>
                 </tr>
-                <tr>
-                    <td>Date Fournisseur</td>
-                    <td>:</td>
-                    <td>{{fournisseur.dateF}}</td>
-                </tr>
- 
-                <tr>
-                    <td>Montant</td>
-                    <td>:</td>
-                    <td>{{ fournisseur.montant }}</td>
-                </tr>
            
                 <tr>
-                    <td>Part</td>
+                    <td>Telephone</td>
+                    <td>:</td>
+                    <td>{{ fournisseur.phone }}</td>
+                </tr>
+                <tr>
 
+                    <td>E-mail</td>
+                    <td>:</td>
+                    <td>{{ fournisseur.email }}</td>
+                </tr>
+                <tr>
+                    <td>Contrat</td>
+
+                    <td>:</td>
+                    <td>{{ fournisseur.contrat }}</td>
+                </tr>
+                <tr>
+
+                    <td>Date</td>
+                    <td>:</td>
+                    <td>{{ fournisseur.date }}</td>
+                </tr>
+                <tr>
+ 
+                    <td>Part</td>
                     <td>:</td>
                     <td>{{ fournisseur.part }}</td>
                 </tr>
                 <tr>
 
-                    <td>Rbt/Src</td>
+                    <td>Nationnalite</td>
                     <td>:</td>
-                    <td>{{ chanson.rbt_src }}</td>
-                </tr> 
-               
+                    <td>{{ fournisseur.nationnalite }}</td>
+                </tr>
+                <tr>
+                    <td>Retenu</td>
+
+                    <td>:</td>
+                    <td>{{ fournisseur.retenu }}</td>
+                </tr>
+ 
             </table>
 
         </div>

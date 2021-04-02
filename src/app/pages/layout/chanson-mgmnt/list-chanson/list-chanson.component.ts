@@ -20,7 +20,7 @@ export class ListChansonComponent implements OnInit {
   statuses: NbComponentStatus[] = ['success'];
   statuses2: NbComponentStatus[] = ['primary'];
   statuses3: NbComponentStatus[] = ['danger'];
-
+  statuses4: NbComponentStatus[] = ['info'];
 
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -32,15 +32,12 @@ export class ListChansonComponent implements OnInit {
 
   constructor(private service: SmartTableData, private chansonService: ChansonService, 
     private r: Router, private ar: ActivatedRoute) {
-
   }
-
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-
     this.chansonService.getlistChanson().subscribe(
       res => {
         // Swal.fire('This is a simple and sweet alert')
@@ -48,7 +45,6 @@ export class ListChansonComponent implements OnInit {
         this.chansons = res;
         console.log(res);
         this.dtTrigger.next();
-
       });
   }
 
@@ -74,6 +70,10 @@ export class ListChansonComponent implements OnInit {
 
   }
 
+  
+  ajouter() {
+    this.r.navigate(['/pages/layout/form-chanson/']);
+  }
   delete(p: chanson) {
     if (window.confirm("êtes-vous sûr suprrimer le produit " + p.nom + " ?")) {
       this.chansonService.deleteChanson(p.id).subscribe(res => {

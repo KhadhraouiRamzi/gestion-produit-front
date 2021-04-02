@@ -1,8 +1,12 @@
-export class ftp {
+import { users } from "./users";
+
+export class FTP {
     id: Number;
     cdate: Date;
-    nomU : String;
+    identifiant : String;
     haut: String;
     port: Number;
+    mp: Number;
     udate: Date;
+    user : users;
   }
